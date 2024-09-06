@@ -1,0 +1,62 @@
+body{
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+    background: rgb(171,80,80);
+    background: linear-gradient(90deg, rgba(171,80,80,1) 1%, rgba(255,0,0,1) 18%, rgba(218,0,255,1) 100%);
+}
+.list{
+    margin-top: 250px;
+    padding-left: 250px;
+    padding-right: 1000px;
+    display: flex;
+    flex-direction: row;
+
+
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+img{
+    padding-left: 5px;
+    padding-right: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 105px;
+    height: 205px;
+}
+
+.list .item{
+    transition: .5s;
+    filter: brightness(0);
+
+}
+.list .item:hover{
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+
+.list .item:hover + *{
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+
+.list .item:hover + * + * {
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(20deg);
+}
+.list .item:hover + * + * + *{
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+.list .item:has(+ *:hover){
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+.list .item:has(+ * + *:hover){
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(-20deg);
+}
+.list .item:has(+ * + * + *:hover){
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(-10deg);
+}
